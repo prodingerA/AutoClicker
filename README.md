@@ -1,2 +1,2 @@
 # AutoClicker
-AutoClicker in range
+AutoClicker in range (377 - 1077, 80 - 480)
