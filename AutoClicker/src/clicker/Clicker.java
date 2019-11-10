@@ -10,7 +10,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
-
 import javax.swing.JOptionPane;
 
 public class Clicker {
@@ -22,11 +21,10 @@ public class Clicker {
 		Timer timer = new Timer();
 		Robot clicker = new Robot();
 		Rectangle captureSize = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
-		BufferedImage bufferedImage = clicker.createScreenCapture(captureSize);
-		
-		String delayStr = JOptionPane.showInputDialog(
-                null, "How many minutes do you want to run the bot for?");
-		
+		BufferedImage bufferedImage = clicker.createScreenCapture(captureSize);		
+//		String delayStr = JOptionPane.showInputDialog(
+  //              null, "How many minutes do you want to run the bot for?");
+String delayStr = args[0];		
 		// Delay in milliseconds
 		TimerTask task = new TimerTask() {
 			@Override
@@ -36,24 +34,27 @@ public class Clicker {
 		};
 		int delay = Integer.parseInt(delayStr) * 60000;
 		timer.schedule(task, delay);
+long timeElapsed = System.currentTimeMillis();
 		while (true) {
+System.out.println((System.currentTimeMillis() - timeElapsed)/1000);
 			count++;
-			System.out.println(count);
 
 			// Stop after set time
 			if (stop)
 				System.exit(1);
 			Random rand = new Random();
-			int randos_x = ThreadLocalRandom.current().nextInt(0, captureSize.width + 1);
-			int randos_y = ThreadLocalRandom.current().nextInt(10, captureSize.height + 1);
+			//int randos_x = ThreadLocalRandom.current().nextInt(0, captureSize.width + 1);
+			//int randos_y = ThreadLocalRandom.current().nextInt(10, captureSize.height + 1);
 
+			int randos_x = ThreadLocalRandom.current().nextInt(240, 1680 + 1);
+			int randos_y = ThreadLocalRandom.current().nextInt(10, 1080 + 1);
 			//	    	System.out.print(randos_x + ", ");
 			//	    	System.out.println(randos_y);
 
 			// Move mouse to random location and click
 			clicker.mouseMove(randos_x, randos_y);
-			//		clicker.mousePress(InputEvent.BUTTON1_DOWN_MASK);
-			//		clicker.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+//					clicker.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+//					clicker.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
 			Thread.sleep(200);
 		}
 	}
