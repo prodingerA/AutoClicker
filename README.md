@@ -1,3 +1,3 @@
 # AutoClicker
 AutoClicker in range (377 - 1077, 80 - 480 '\n'
-Less edit
+More edit let's go
