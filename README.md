@@ -1,3 +1,4 @@
 # AutoClicker
-AutoClicker in range (377 - 1077, 80 - 480 '\n'
+The best autoclicker of the universe.
 
+Kappa
